@@ -12,8 +12,10 @@ public class Main {
         FirstCalculator firstCalc = new FirstCalculator(grammar);
         Map<String, Set<String>> firstSets = firstCalc.computeFirstSets();
 
-        for (String symbol : firstSets.keySet()) {
+        System.out.println("Conjuntos FIRST de los no terminales:");
+        for (String symbol : grammar.keySet()) {
             System.out.println("FIRST(" + symbol + ") = " + firstSets.get(symbol));
         }
     }
 }
+
