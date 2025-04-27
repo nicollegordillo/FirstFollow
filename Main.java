@@ -16,6 +16,13 @@ public class Main {
         for (String symbol : grammar.keySet()) {
             System.out.println("FIRST(" + symbol + ") = " + firstSets.get(symbol));
         }
+
+        FollowCalculator followCalc = new FollowCalculator(grammar, firstSets);
+        Map<String, Set<String>> followSets = followCalc.computeFollowSets("E"); // "E" es el símbolo inicial
+
+        System.out.println("\nConjuntos FOLLOW de los no terminales:");
+        for (String symbol : grammar.keySet()) {
+            System.out.println("FOLLOW(" + symbol + ") = " + followSets.get(symbol));
+        }
     }
 }
-
